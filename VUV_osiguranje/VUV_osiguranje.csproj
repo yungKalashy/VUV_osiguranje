@@ -7,4 +7,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Osoba\Osiguranici.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Osoba\Osiguranici.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

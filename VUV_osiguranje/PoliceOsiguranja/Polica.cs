@@ -27,7 +27,6 @@ namespace VUV_osiguranje.PoliceOsiguranja
         public int Sifra
         {
             get { return _sifra; }
-            set { _sifra = value; }
         }
 
         public string Osiguranik

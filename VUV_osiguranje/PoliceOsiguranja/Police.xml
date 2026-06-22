@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Police>
+	<Polica>
+		<Sifra>1</Sifra>
+		<Osiguranik>Marko Markić</Osiguranik>
+		<Vrsta>Auto</Vrsta>
+		<DatumSklapanja>2026-06-22</DatumSklapanja>
+		<Trajanje>2027-06-22</Trajanje>
+		<OsiguranaSvota>10000</OsiguranaSvota>
+	</Polica>
+</Police>

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VUV_osiguranje.PoliceOsiguranja;
 
-namespace VUV_osiguranje
+namespace VUV_osiguranje.Stete
 {
     internal class Steta
     {
@@ -14,6 +14,7 @@ namespace VUV_osiguranje
         private string _opis;
         private double _iznos;
         private StatusStete _status;
+       
 
         public Steta(Polica polica, DateTime datum, string opis, double iznos, StatusStete status)
         {
@@ -54,7 +55,7 @@ namespace VUV_osiguranje
 
             set
             {
-                if(status == StatusStete.Odobrena || status == StatusStete.Odbijena)
+                if(_status == StatusStete.Odobrena || _status == StatusStete.Odbijena)
                 {
                     throw new InvalidOperationException("Status se ne može mijenjati nakon odobrenja ili odbijanja.");
                 }
@@ -65,7 +66,7 @@ namespace VUV_osiguranje
 
         public void Odobri()
         {
-            if(status != StatusStete.Prijavljenja)
+            if(_status != StatusStete.Prijavljena)
             {
                 throw new InvalidOperationException();
             }
@@ -75,7 +76,7 @@ namespace VUV_osiguranje
 
         public void Odbij()
         {
-            if(status != StatusStete.Prijavljenja)
+            if(_status != StatusStete.Prijavljena)
             {
                 throw new InvalidOperationException();
             }

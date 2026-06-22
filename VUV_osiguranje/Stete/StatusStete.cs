@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VUV_osiguranje
+namespace VUV_osiguranje.Stete
 {
     enum StatusStete
     {
-        Prijavljenja,
+        Prijavljena,
         Odobrena,
         Odbijena
     }

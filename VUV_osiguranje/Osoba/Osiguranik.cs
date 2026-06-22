@@ -9,9 +9,17 @@ namespace VUV_osiguranje.Osoba
     internal class Osiguranik : Osoba
     {
 
-        public Osiguranik(int oib, string ime, string prezime) : base(oib, ime, prezime)
+        private bool _deleted;
+        public Osiguranik() : base() { }
+        public Osiguranik(string oib, string ime, string prezime, bool deleted) : base(oib, ime, prezime)
         {
+            _deleted = deleted;
+        }
 
+        public bool Deleted
+        {
+            get { return _deleted; }
+            set { _deleted = value; }
         }
     }
 }

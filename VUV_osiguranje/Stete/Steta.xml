@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Stete>
+	<Steta>
+		<SifraPolice>1</SifraPolice>
+		<Datum>2026-06-22</Datum>
+		<Opis>Prometna nesreca</Opis>
+		<Iznos>1500</Iznos>
+		<Status>Prijavljena</Status>
+	</Steta>
+</Stete>

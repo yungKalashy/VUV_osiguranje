@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Osiguranici>
+
+	<Osiguranik>
+		<OIB>12345678901</OIB>
+		<Ime>Ivan</Ime>
+		<Prezime>Ivić</Prezime>
+		<Deleted>false</Deleted>
+	</Osiguranik>
+
+	<Osiguranik>
+		<OIB>23456789012</OIB>
+		<Ime>Ana</Ime>
+		<Prezime>Anić</Prezime>
+		<Deleted>false</Deleted>
+	</Osiguranik>
+
+	<Osiguranik>
+		<OIB>34567890123</OIB>
+		<Ime>Marko</Ime>
+		<Prezime>Marić</Prezime>
+		<Deleted>false</Deleted>
+	</Osiguranik>
+
+	<Osiguranik>
+		<OIB>45678901234</OIB>
+		<Ime>Petra</Ime>
+		<Prezime>Petrić</Prezime>
+		<Deleted>false</Deleted>
+	</Osiguranik>
+
+	<Osiguranik>
+		<OIB>56789012345</OIB>
+		<Ime>Luka</Ime>
+		<Prezime>Lukić</Prezime>
+		<Deleted>false</Deleted>
+	</Osiguranik>
+
+</Osiguranici>
