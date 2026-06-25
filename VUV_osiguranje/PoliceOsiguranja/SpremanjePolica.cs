@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Linq;
+using System.Xml;
 
 namespace VUV_osiguranje.PoliceOsiguranja
 {
@@ -11,20 +10,42 @@ namespace VUV_osiguranje.PoliceOsiguranja
     {
         public static void Spremi(Dictionary<int, Polica> police)
         {
-            var doc = new XDocument(
-                new XElement("Police",
-                    police.Values.Select(p =>
-                        new XElement("Polica",
-                            new XElement("Sifra", p.Sifra),
-                            new XElement("Osiguranik", p.Osiguranik),
-                            new XElement("VrstaPolice", p.GetType().Name),
-                            new XElement("DatumSklapanja", p.datumSklapanja),
-                            new XElement("DatumTrajanja", p.Trajanje),
-                            new XElement("OsiguranaSvota", p.OsiguranaSvota)
-                        )
-                    )
-                )
-            );
+            XmlDocument doc = new XmlDocument();
+
+            XmlElement root = doc.CreateElement("Police");
+            doc.AppendChild(root);
+
+            foreach (Polica p in police.Values)
+            {
+                XmlElement polica = doc.CreateElement("Polica");
+
+                XmlElement sifra = doc.CreateElement("Sifra");
+                sifra.InnerText = p.Sifra.ToString();
+
+                XmlElement osiguranik = doc.CreateElement("Osiguranik");
+                osiguranik.InnerText = p.Osiguranik;
+
+                XmlElement vrsta = doc.CreateElement("VrstaPolice");
+                vrsta.InnerText = p.GetType().Name;
+
+                XmlElement datumSklapanja = doc.CreateElement("DatumSklapanja");
+                datumSklapanja.InnerText = p.datumSklapanja.ToString("yyyy-MM-dd");
+
+                XmlElement datumTrajanja = doc.CreateElement("DatumTrajanja");
+                datumTrajanja.InnerText = p.Trajanje.ToString("yyyy-MM-dd");
+
+                XmlElement svota = doc.CreateElement("OsiguranaSvota");
+                svota.InnerText = p.OsiguranaSvota.ToString();
+
+                polica.AppendChild(sifra);
+                polica.AppendChild(osiguranik);
+                polica.AppendChild(vrsta);
+                polica.AppendChild(datumSklapanja);
+                polica.AppendChild(datumTrajanja);
+                polica.AppendChild(svota);
+
+                root.AppendChild(polica);
+            }
 
             doc.Save("Police.xml");
         }

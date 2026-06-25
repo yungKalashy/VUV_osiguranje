@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using System.Xml.Linq;
+using System.Xml;
+
 
 namespace VUV_osiguranje.Stete
 {
@@ -8,18 +8,38 @@ namespace VUV_osiguranje.Stete
     {
         public static void Spremi(List<Steta> stete)
         {
-            var doc = new XDocument(
-                new XElement("Stete",
-                    stete.Select(s =>
-                        new XElement("Steta",
-                            new XElement("Datum", s.datum),
-                            new XElement("Opis", s.opis),
-                            new XElement("Iznos", s.iznos),
-                            new XElement("Status", s.status)
-                        )
-                    )
-                )
-            );
+            XmlDocument doc = new XmlDocument();
+
+            XmlElement root = doc.CreateElement("Stete");
+            doc.AppendChild(root);
+
+            foreach (Steta s in stete)
+            {
+                XmlElement steta = doc.CreateElement("Steta");
+
+                XmlElement datum = doc.CreateElement("Datum");
+                datum.InnerText = s.datum.ToString();
+
+                XmlElement opis = doc.CreateElement("Opis");
+                opis.InnerText = s.opis;
+
+                XmlElement iznos = doc.CreateElement("Iznos");
+                iznos.InnerText = s.iznos.ToString();
+
+                XmlElement status = doc.CreateElement("Status");
+                status.InnerText = s.status.ToString();
+
+                XmlElement sifraPolice = doc.CreateElement("SifraPolice");
+                sifraPolice.InnerText = s.polica.Sifra.ToString();
+
+                steta.AppendChild(datum);
+                steta.AppendChild(opis);
+                steta.AppendChild(iznos);
+                steta.AppendChild(status);
+                steta.AppendChild(sifraPolice);
+
+                root.AppendChild(steta);
+            }
 
             doc.Save("Stete.xml");
         }
