@@ -1,4 +1,16 @@
-﻿using System;
+﻿/*
+ * =================================================
+ * 
+ * Autor: Daniel Malenjak
+ * Projekt: VUV Osiguranje
+ * Predmet: Objektno-orijentirano programiranje
+ * Ustanova: Veleučilište u Virovitici
+ * Godina: 2026.
+ * 
+ * =================================================
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Security.Cryptography;
